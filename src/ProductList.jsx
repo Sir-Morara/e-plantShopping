@@ -300,7 +300,7 @@ const handleAddToCart = (product) => {
 
         </div>
  ) :  (
-    <CartItem onContinueShopping={handleContinueShopping}/>
+    <CartItem onContinueShopping={handleContinueShopping} />
 )}
     </div>
     );
