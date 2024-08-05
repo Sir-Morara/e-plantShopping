@@ -7,9 +7,9 @@ const CartItem = ({ onContinueShopping }) => {
   const cart = useSelector(state => state.cart.items);
   const dispatch = useDispatch();
 
-  
+
   const calculateTotalAmount = () => {
-    // Calculate total amount logic
+    return cart.reduce((total, item) => total + item.quantity * item.cost, 0).toFixed(2);
   };
 
   const handleContinueShopping = (e) => {
@@ -26,6 +26,8 @@ const CartItem = ({ onContinueShopping }) => {
   const handleDecrement = (item) => {
     if (item.quantity > 1) {
       dispatch(updateQuantity({ name: item.name, quantity: item.quantity - 1 }));
+    } else {
+      dispatch(removeItem(item.name));
     }
   };
 
@@ -35,7 +37,7 @@ const CartItem = ({ onContinueShopping }) => {
 
 
   const calculateTotalCost = (item) => {
-    // Calculate total cost logic
+    return (item.quantity * item.cost).toFixed(2);
   };
 
   return (
