@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   build: {
-    outDir: 'src', 
+    outDir: 'dist', 
   },
   base: '/e-plantShopping/',
   plugins: [react()],
